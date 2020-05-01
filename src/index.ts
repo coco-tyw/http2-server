@@ -3,6 +3,8 @@ import fs from 'fs'
 import path from 'path'
 import spdy from 'spdy'
 import compression from 'compression'
+import hemet from 'helmet'
+import helmet from 'helmet'
 
 const port = 3000
 const option: spdy.server.ServerOptions = {
@@ -13,6 +15,7 @@ const option: spdy.server.ServerOptions = {
 
 const app = express()
 app.use(compression())
+app.use(helmet())
 app.get('/', (req, res) => res.send('Hello World!'))
 
 spdy.createServer(option, app).listen(port)
