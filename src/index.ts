@@ -3,7 +3,6 @@ import fs from 'fs'
 import path from 'path'
 import spdy from 'spdy'
 import compression from 'compression'
-import hemet from 'helmet'
 import helmet from 'helmet'
 
 const port = 3000
