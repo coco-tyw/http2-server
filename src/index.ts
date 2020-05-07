@@ -5,6 +5,7 @@ import spdy from 'spdy'
 import compression from 'compression'
 import helmet from 'helmet'
 import cors from 'cors'
+import routes from '@/routes/index'
 
 const port = 3000
 const option: spdy.server.ServerOptions = {
@@ -17,6 +18,7 @@ const app = express()
 app.use(compression())
 app.use(helmet())
 app.use(cors())
-app.get('/', (req, res) => res.send('Hello World!'))
+
+routes(app)
 
 spdy.createServer(option, app).listen(port)
